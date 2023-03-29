@@ -1,17 +1,17 @@
 import {Composition} from 'remotion';
-import {MyComposition} from './Composition';
+import {CompositionReddit} from './CompositionReddit';
 
 export const RemotionRoot: React.FC = () => {
 	return (
 		<>
-			<Composition
-				id="MyComp"
-				component={MyComposition}
-				durationInFrames={60}
+		<Composition
+				id="Reddit"
+				component={CompositionReddit}
+				durationInFrames={1200}
 				fps={30}
 				width={1280}
 				height={720}
 			/>
-		</>
+				</>
 	);
 };
