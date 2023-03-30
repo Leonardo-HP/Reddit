@@ -9,6 +9,7 @@ import {RedditLogo} from './Reddit/RedditLogo';
 import {Temblor} from './Reddit/Temblor';
 import {EscalaDesaparece} from './Reddit/FirefoxLogo/EscalaDesaparece';
 import {Triangulos} from './Reddit/RedditLogin.tsx/Triangulos';
+import { SignIn } from './Reddit/RedditLogin.tsx/SignIn';
 
 export const CompositionReddit = () => {
 	return (
@@ -41,9 +42,18 @@ export const CompositionReddit = () => {
 				<BusquedaEnGoogle />
 			</Sequence>
 
-			<Sequence from={840}>
+			<Sequence from={840} durationInFrames={160}>
 				<Triangulos />
 			</Sequence>
+
+			<Sequence from={1000}>
+				<SignIn/>
+			</Sequence>
+
+
+
+
+
 
 			<Sequence from={18}>
 				<Audio src={staticFile('Superhero.mp3')} />
