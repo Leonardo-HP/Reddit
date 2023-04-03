@@ -11,6 +11,7 @@ import {
 	spring,
 	Img,
 } from 'remotion/.';
+import { Abogado } from './Abogado';
 
 export const SignIn: React.FC = () => {
 	const frame = useCurrentFrame();
@@ -27,132 +28,154 @@ export const SignIn: React.FC = () => {
 		},
 	});
 
+	const zoom = interpolate(frame, [90, 100, 150, 160], [1, 2.5, 2.5, 1], {
+		extrapolateRight: 'clamp',
+		extrapolateLeft: 'clamp',
+	});
 
-  
-  
-  const abogadoY = interpolate(frame, [1,10,100,110], [750,420,420,750 ], {extrapolateRight: "clamp" , extrapolateLeft: "clamp"})
-	
-  const abogadoX = interpolate(frame, [1,10,100,110], [1300,1000,1000,1300 ], {extrapolateRight: "clamp" , extrapolateLeft: "clamp"})
-	
-	const abogadoRotate = interpolate(frame, [1,10,100,110], [90,0,0,90 ], {extrapolateRight: "clamp" , extrapolateLeft: "clamp"})
-	
-	const bocaAbogadoY = interpolate(frame, [10,20,30,40,50,60,70,80], [519,523,519,523,519,523,519,523 ], {extrapolateRight: "clamp" , extrapolateLeft: "clamp"})
-	
-	const bocaAbogadoOpacity = interpolate(frame, [10,11,99,100], [0,1,1,0 ], {extrapolateRight: "clamp" , extrapolateLeft: "clamp"})
+	const zoomY = interpolate(frame, [90, 100, 150, 160], [100, 500, 500, 100], {
+		extrapolateRight: 'clamp',
+		extrapolateLeft: 'clamp',
+	});
+	const arriba = interpolate(frame, [90, 100, 150, 160], [-340, 0, 0, -340], {
+		extrapolateRight: 'clamp',
+		extrapolateLeft: 'clamp',
+	});
+	const abajo = interpolate(frame, [90, 100, 150, 160], [1040, 520, 520, 1040], {
+		extrapolateRight: 'clamp',
+		extrapolateLeft: 'clamp',
+	});
+	const izquierda = interpolate(frame, [90, 100, 150, 160], [-400,0, 0, -400], {
+		extrapolateRight: 'clamp',
+		extrapolateLeft: 'clamp',
+	});
+	const derecha = interpolate(frame, [90, 100, 150, 160], [1300, 900, 900, 1300], {
+		extrapolateRight: 'clamp',
+		extrapolateLeft: 'clamp',
+	});
 
-	
+	const rotar = interpolate(frame, [90, 100, 150, 160], [1300, 900, 900, 1300], {
+		extrapolateRight: 'clamp',
+		extrapolateLeft: 'clamp',
+	});
 
 
-
-
-
-  
-	const zoomSizeArribaDerecha = interpolate(frame, [1,50,80,130], [1,3,3,1 ], {extrapolateRight: "clamp" , extrapolateLeft: "clamp"})
-  const zoomXArribaDerecha = interpolate(frame, [1,50,80,130], [0,-1400,-1400,0 ], {extrapolateRight: "clamp" , extrapolateLeft: "clamp"})
-  const ZoomYArribaDerecha = interpolate(frame, [1,50,80,130], [0,800,800,0 ], {extrapolateRight: "clamp" , extrapolateLeft: "clamp"})
-
-	const signal = interpolate(frame, [50,55,60,65,70], [0,0.5,0,0.5,0 ], {extrapolateRight: "clamp" , extrapolateLeft: "clamp"})
 
 
 
 	return (
 		<div>
-
-
-
-
 			<div
 				style={{
 					width: '1280px',
 					height: '720px',
-	
-					translate: ' 0px 0px',
-					position:'absolute'
 
+					translate: ' 0px 0px',
+					position: 'absolute',
 				}}
 			>
-
-
-
-
-       
-
-
-
 				<AbsoluteFill>
 					<Img
 						src={staticFile('ImgTrianguloAbajoIzquierda.png')}
 						style={{
-						opacity:  '1'}}
+							opacity: '1',
+						}}
+					/>
+				</AbsoluteFill>
+
+				<AbsoluteFill>
+					<div
+						style={{
+							opacity: '0.5',
+							width: '1280px',
+							height: '720px',
+							background: 'black',
+						}}
 					/>
 				</AbsoluteFill>
 
 
 
 
-
-
+				<AbsoluteFill>
+					<Img
+						src={staticFile('signUp.png')}
+						style={{
+							opacity: '1',
+							width: '300px',
+							height: '500px',
+							translate: `500px ${zoomY}px`,
+							borderRadius: '3%',
+							scale: `${zoom}`,
+							
+						}}
+					/>
+				</AbsoluteFill>
 			</div>
 
+<Sequence from={200}>
+<Abogado/>
 
-       
-      <Img
-						src={staticFile('Abogado.png')}
+
+</Sequence>
+
+
+
+<AbsoluteFill>
+					<div
 						style={{
-              width: '200px',
-              height: '300px',
-						opacity:  '1',
-          translate:` ${abogadoX}px ${abogadoY}px`,
-          	position:"absolute",
-						transform:`rotate(${abogadoRotate}deg)`
-          }}
+					
+							width: '1280px',
+							height: '340px',
+							background: 'black',
+							translate: `0px ${arriba}px`,
+							overflow:'hidden'
+						}}
 					/>
+				</AbsoluteFill>
 
-       
-<Img
-						src={staticFile('bocaAbogadoNegra.png')}
+				<AbsoluteFill>
+					<div
 						style={{
-							width: '650px',
-              height: '400px',
-
-					
-          translate:`1107px 519px`,
-          	position:"absolute",
-						opacity: `${bocaAbogadoOpacity}`,
 						
-					
-						
-          }}
+							width: '1280px',
+							height: '200px',
+							background: 'black',
+							translate: `0px ${abajo}px`,
+							overflow:'hidden'
+						}}
 					/>
-
-
-
-
-       
-<Img
-						src={staticFile('bocaAbogado.png')}
+				</AbsoluteFill>
+zxxc
+				<AbsoluteFill>
+					<div
 						style={{
-							width: '650px',
-              height: '400px',
-
-					
-          translate:`1107px ${bocaAbogadoY}px`,
-          	position:"absolute",
-						opacity: `${bocaAbogadoOpacity}`,
 						
-					
+							width: '350px',
+							height: '720px',
+							background: 'black',
+							translate: `${izquierda}px 0px`,
+							overflow:'hidden'
 						
-          }}
+						}}
 					/>
+				</AbsoluteFill>
+
+				<AbsoluteFill>
+					<div
+						style={{
+						
+							width: '380px',
+							height: '720px',
+							background: 'black',
+							translate: `${derecha}px 0px`,
+							overflow:'hidden'
+				
+						}}
+					/>
+				</AbsoluteFill>
 
 
-			
-
-
-
-	
-
-    
 		</div>
 	);
 };

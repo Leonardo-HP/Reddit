@@ -9,7 +9,13 @@ import {RedditLogo} from './Reddit/RedditLogo';
 import {Temblor} from './Reddit/Temblor';
 import {EscalaDesaparece} from './Reddit/FirefoxLogo/EscalaDesaparece';
 import {Triangulos} from './Reddit/RedditLogin.tsx/Triangulos';
+
+import { ClickOnSingIn } from './Reddit/RedditLogin.tsx/ClickOnSignIn';
 import { SignIn } from './Reddit/RedditLogin.tsx/SignIn';
+import { IngresandoCorreo } from './Reddit/RedditLogin.tsx/IngresandoCorreo';
+import { Preferencias } from './Reddit/RedditLogin.tsx/Preferencias';
+import { Intereses } from './Reddit/RedditLogin.tsx/Intereses';
+
 
 export const CompositionReddit = () => {
 	return (
@@ -21,7 +27,7 @@ export const CompositionReddit = () => {
 			</AbsoluteFill>
 
 			<AbsoluteFill>
-				<Sequence from={50}>
+				<Sequence from={50} durationInFrames={200}>
 					<EscalaDesaparece>
 						<RedditLogo />
 					</EscalaDesaparece>
@@ -46,8 +52,27 @@ export const CompositionReddit = () => {
 				<Triangulos />
 			</Sequence>
 
-			<Sequence from={1000}>
+			<Sequence from={1000} durationInFrames={130}>
+				<ClickOnSingIn/>
+			</Sequence>
+
+
+			<Sequence from={1130} durationInFrames={500}>
 				<SignIn/>
+			</Sequence>
+
+
+
+			<Sequence from={1630} durationInFrames={830}>
+				<IngresandoCorreo/>
+			</Sequence>
+
+
+			<Sequence from={2460} durationInFrames={115}>
+				<Preferencias/>
+			</Sequence>
+			<Sequence from={2575} durationInFrames={535}>
+				<Intereses/>
 			</Sequence>
 
 
@@ -55,7 +80,7 @@ export const CompositionReddit = () => {
 
 
 
-			<Sequence from={18}>
+			<Sequence from={18} durationInFrames={100}>
 				<Audio src={staticFile('Superhero.mp3')} />
 			</Sequence>
 		</div>

@@ -40,6 +40,26 @@ export const Triangulos: React.FC = () => {
 
 
 
+	const MuevoCursorX = interpolate(driver, [1, 50], [0,-540], {
+		extrapolateRight: 'clamp',
+	});
+
+	const MuevoCursorY = interpolate(driver, [1, 50],  [0, 190], {
+		extrapolateRight: 'clamp',
+	});
+
+
+	const MuevoCursorX2 = interpolate(frame, [0, 50], [0, 530], {
+		extrapolateRight: 'clamp',
+	});
+
+	const MuevoCursorY2 = interpolate(frame, [0, 50], [0, -415], {
+		extrapolateRight: 'clamp',
+	});
+
+
+
+
 	return (
 		<div>
 
@@ -118,6 +138,17 @@ export const Triangulos: React.FC = () => {
 			opacity:`${signal}`
 				}}
 		/>
+
+
+
+
+
+
+
+
+
+
+
 		</div>
 	);
 };
